@@ -6,6 +6,11 @@ const { defineConfig } = require("cypress");
 
 module.exports = defineConfig({
   reporter: 'cypress-mochawesome-reporter',
+
+  env: {
+    application_URL: 'https://www.saucedemo.com/v1/'
+  },
+
   reporterOptions: {
     charts: true,
     reportPageTitle: 'Sauce Demo UI Test',

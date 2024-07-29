@@ -1,20 +1,12 @@
-// ***********************************************
-// Custom comand to navegate to the aplication and implement on
-// multiple environment (preprod-prod-test)
-// ***********************************************
-//
-//
 // -- This is a parent command --
 // Cypress.Commands.add('login', (email, password) => { ... })
 //
-//
-// -- This is a child command --
-// Cypress.Commands.add('drag', { prevSubject: 'element'}, (subject, options) => { ... })
-//
-//
-// -- This is a dual command --
-// Cypress.Commands.add('dismiss', { prevSubject: 'optional'}, (subject, options) => { ... })
-//
-//
-// -- This will overwrite an existing command --
-// Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
+
+//Custom comand
+Cypress.Commands.add('goToApp', ()=>{
+    //App URL from cypress environment variables.
+    const url = Cypress.env('application_URL')
+
+    //Navigate to the app.
+    cy.visit(url)
+})

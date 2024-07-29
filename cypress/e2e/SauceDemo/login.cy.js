@@ -4,7 +4,7 @@
 describe('Sauce Demo - [LOGIN]', () => {
   //Execute before each test case
   beforeEach(() => {
-    cy.visit('https://www.saucedemo.com/v1/')
+    cy.goToApp()
   })
 
   //Test Case
