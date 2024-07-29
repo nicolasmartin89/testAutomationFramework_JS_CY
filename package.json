@@ -1,0 +1,24 @@
+{
+  "name": "testautomationframework_js_cy",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "cy:open": "cypress open",
+    "cy:test:CHROME": "cypress run --spec cypress/e2e/SauceDemo/*.cy.js --headed --browser chrome",
+    "cy:test:FIREFOX": "cypress run --spec cypress/e2e/SauceDemo/*.cy.js --headed --browser firefox",
+    "cy:test:EDGE": "cypress run --spec cypress/e2e/SauceDemo/*.cy.js --headed --browser edge",
+    "cy:test:ELECTRON": "cypress run --spec cypress/e2e/SauceDemo/*.cy.js --headed --browser electron",
+    "cy:test:CHROME:HEADLESS": "cypress run --spec cypress/e2e/SauceDemo/*.cy.js --browser chrome"
+  },
+  "keywords": [],
+  "author": "Nicolas Martin",
+  "license": "ISC",
+  "description": "Test automation framework for practice with JS & Cypress",
+  "dependencies": {
+    "cypress": "^13.13.1"
+  },
+  "devDependencies": {
+    "cypress-mochawesome-reporter": "^3.8.2"
+  }
+}
