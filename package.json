@@ -10,10 +10,7 @@
     "cy:test:EDGE": "cypress run --spec cypress/e2e/SauceDemo/*.cy.js --headed --browser edge",
     "cy:test:ELECTRON": "cypress run --spec cypress/e2e/SauceDemo/*.cy.js --headed --browser electron",
     "cy:test:CHROME:HEADLESS": "cypress run --spec cypress/e2e/SauceDemo/*.cy.js --browser chrome",
-
-    
     "cy:test:CHROME:SANITY": "cypress run --spec cypress/e2e/SauceDemo/*.cy.js --headed --browser chrome --env grep=@sanity",
-
     "cy:test:CHROME:REGRESSION": "cypress run --spec cypress/e2e/SauceDemo/*.cy.js --headed --browser chrome --env grep=@regression"
   },
   "keywords": [],
@@ -21,7 +18,8 @@
   "license": "ISC",
   "description": "Test automation framework for practice with JS & Cypress",
   "dependencies": {
-    "cypress": "^13.13.1"
+    "cypress": "^13.13.1",
+    "testautomationframework_js_cy": "file:"
   },
   "devDependencies": {
     "@cypress/grep": "^4.1.0",
