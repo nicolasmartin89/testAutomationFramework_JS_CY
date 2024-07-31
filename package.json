@@ -9,7 +9,12 @@
     "cy:test:FIREFOX": "cypress run --spec cypress/e2e/SauceDemo/*.cy.js --headed --browser firefox",
     "cy:test:EDGE": "cypress run --spec cypress/e2e/SauceDemo/*.cy.js --headed --browser edge",
     "cy:test:ELECTRON": "cypress run --spec cypress/e2e/SauceDemo/*.cy.js --headed --browser electron",
-    "cy:test:CHROME:HEADLESS": "cypress run --spec cypress/e2e/SauceDemo/*.cy.js --browser chrome"
+    "cy:test:CHROME:HEADLESS": "cypress run --spec cypress/e2e/SauceDemo/*.cy.js --browser chrome",
+
+    
+    "cy:test:CHROME:SANITY": "cypress run --spec cypress/e2e/SauceDemo/*.cy.js --headed --browser chrome --env grep=@sanity",
+
+    "cy:test:CHROME:REGRESSION": "cypress run --spec cypress/e2e/SauceDemo/*.cy.js --headed --browser chrome --env grep=@regression"
   },
   "keywords": [],
   "author": "Nicolas Martin",
@@ -19,6 +24,7 @@
     "cypress": "^13.13.1"
   },
   "devDependencies": {
+    "@cypress/grep": "^4.1.0",
     "cypress-mochawesome-reporter": "^3.8.2",
     "cypress-xpath": "^2.0.1"
   }
