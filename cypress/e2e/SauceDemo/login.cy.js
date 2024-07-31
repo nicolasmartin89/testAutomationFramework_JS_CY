@@ -7,6 +7,11 @@ describe('Sauce Demo - [LOGIN]', () => {
     
   })
 
+const login_credentials = require('/cypress/fixtures/login_credentials_saucedemo.json');
+const valid_username_login = login_credentials.valid_usarname_1;
+const valid_password_login = login_credentials.valid_password_1;
+
+
   //Test Case for SauceDemo.
   it('@regression @sanity [LOGIN] Login with valid credentials. Validate that User is able to login with valid credentials', () => {
     
@@ -14,8 +19,8 @@ describe('Sauce Demo - [LOGIN]', () => {
 
     //cy.get('#user-name').type('standard_user')
 
-    cy.xpath("//input[@id='user-name']").type('standard_user')
-    cy.get('#password').type('secret_sauce')
+    cy.xpath("//input[@id='user-name']").type(valid_username_login)
+    cy.get('#password').type(valid_password_login)
 
     cy.get('#login-button').click()
 
