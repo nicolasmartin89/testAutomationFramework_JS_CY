@@ -15,7 +15,7 @@ on:
   workflow_dispatch:
 
 jobs:
-  ui_test_chrome:
+  ui_test_all_browsers:
     runs-on: ubuntu-latest
 
     #Add Strategy: Use matrix strategy for run in paralell test execution in diferent browsers.
