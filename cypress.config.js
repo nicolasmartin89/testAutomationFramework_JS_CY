@@ -8,7 +8,7 @@ module.exports = defineConfig({
   reporter: 'cypress-mochawesome-reporter',
 
   env: {
-    application_URL: 'https://www.saucedemo.com/v1/'
+    application_URL: 'https://www.saucedemo.com/'
   },
 
   // Configure the Mochawesome reporter for generating test reports

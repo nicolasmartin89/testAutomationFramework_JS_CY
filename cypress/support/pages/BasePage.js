@@ -1,10 +1,12 @@
 class BasePage{
 
     clickOnWebElement(element){
+        cy.log("Clicking the" + element + " button")
         element.click()
     }
 
     fillTextBox(element, textToFill){
+        cy.log("Filling" + element + " with this text: "+ textToFill)
         element.clear()
         element.type(textToFill)
     }
@@ -18,4 +20,4 @@ class BasePage{
     }
 
 }
-export default BasePage()   
+export default new BasePage()   

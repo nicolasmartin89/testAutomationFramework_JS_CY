@@ -39,12 +39,13 @@ const valid_password_login = login_credentials.valid_password_1;
     LoginPage.fill_textBox_username(valid_username_login)
     LoginPage.fill_textBox_password(valid_password_login)
     LoginPage.click_login_button()
-    ProductsPage.elements.heading_productPage.should('have.text','Products')
+    ProductsPage.elements
+    ProductsPage.elements.heading_productPage('have.text','Products')
     
     Header.elements.header_productPage('have.text','Sauce Labs')
     Footer.elements.message_copy_footer('have.id','header_container')
 
-    cy.screenshot()
+    //cy.screenshot()
 
   })
 
