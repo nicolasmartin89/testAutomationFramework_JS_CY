@@ -17,13 +17,13 @@ on:
       browser:
         description: 'Select browser (CHROME / EDGE / ELECTRON / FIREFOX)'
         options:
-        - 'CHROME'
-        - 'EDGE'
-        - 'ELECTRON'
-        - 'FIREFOX'
-      required: true
-      default: 'CHROME'
-      type: choise
+          - 'CHROME'
+          - 'EDGE'
+          - 'ELECTRON'
+          - 'FIREFOX'
+        required: true
+        default: 'CHROME'
+        type: choice
 
   # Trigger on push to the main branch
   push:
