@@ -1,54 +1,54 @@
-# For test excecution
+# For test execution
 
-#Machine (Win/Mac/Linux)
+# Machine (Win/Mac/Linux)
 
-# Sofwares to be installed (Node Js)
+# Software to be installed (Node.js)
 
-#Need to execute the test
+# Need to execute the test
 ############################################
 
 name: 01_Pre-defined browser Chrome
 
-#Events
+# Events
 on:
-    #Manual trigger
-    workflow_dispatch:
+  # Manual trigger
+  workflow_dispatch:
 
-    #Trigger on push main branch
-    push:
-      branches:
-        -main
+  # Trigger on push to the main branch
+  push:
+    branches:
+      - main
 
-    #Trigger on pull request to the main branch
-    pull_request:
-      branches:
-        -main
+  # Trigger on pull request to the main branch
+  pull_request:
+    branches:
+      - main
 
 jobs:
-    ui_test_chrome:
-    run-on: ubuntu-latest
+  ui_test_chrome:
+    runs-on: ubuntu-latest
 
     steps:
-      #Step 1: Cheching out the code from Github repo to the machine (ubuntu-latest)
+      # Step 1: Checking out the code from GitHub repo to the machine (ubuntu-latest)
       - name: Checkout code
         uses: actions/checkout@v2
 
-      #Step 2: Installing node.js
-      - name: Install node.js
+      # Step 2: Installing Node.js
+      - name: Install Node.js
         uses: actions/setup-node@v2
         with:
           node-version: 16
 
-      #Step 3: Installing dependencies for cypress
-      - name: Install dependencies for cypress.
+      # Step 3: Installing dependencies for Cypress
+      - name: Install dependencies for Cypress
         run: npm ci
 
-      #Step 4: Run Cypress test on Chrome
-      - name: Run Cypress UI tests.
+      # Step 4: Run Cypress test on Chrome
+      - name: Run Cypress UI tests
         run: npm run cy:test:CHROME
 
-      #Step 5: Upload test reports as artifact on github
-      - name: Upload reports.
+      # Step 5: Upload test reports as artifact on GitHub
+      - name: Upload reports
         uses: actions/upload-artifact@v2
         with:
           name: UI Tests report
