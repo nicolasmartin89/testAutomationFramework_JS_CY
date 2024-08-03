@@ -7,7 +7,7 @@
 # Need to execute the test
 ############################################
 
-name: 01_Pre-defined browser Chrome
+name: 02_Select_Browser.
 
 # Events
 on:
