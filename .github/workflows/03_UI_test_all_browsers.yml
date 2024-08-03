@@ -17,14 +17,13 @@ on:
 jobs:
   ui_test_all_browsers:
     runs-on: ubuntu-latest
-
-    #Add Strategy: Use matrix strategy for run in paralell test execution in diferent browsers.
+    #Add strategy Matrix for run in paralell.
     strategy:
       matrix:
-        browser: [CHROME, FIREFOX, ELECTRON, EDGE]
+        browser: ['CHROME', 'EDGE', 'ELECTRON', 'FIREFOX']
 
     steps:
-      # Step 1: Checking out the code from the GitHub repository to the machine (ubuntu-latest)
+      # Step 1: Checking out the code from GitHub repo to the machine (ubuntu-latest)
       - name: Checkout code
         uses: actions/checkout@v4
 
@@ -33,18 +32,18 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 16
-      
-      # Step 3: Installing dependencies required for Cypress
-      - name: Install dependencies
+
+      # Step 3: Installing dependencies for Cypress
+      - name: Install dependencies for Cypress
         run: npm ci
 
-      # Step 4: Run Cypress tests on all supported browsers from the matrix
+      # Step 4: Run Cypress test on the selected browser
       - name: Run Cypress UI tests
         run: npm run cy:test:${{ matrix.browser }}
-        
+
       # Step 5: Upload test reports as artifact on GitHub
       - name: Upload reports
         uses: actions/upload-artifact@v4
         with:
-          name: UI Tests report - ${{ matrix.browser }}
+          name: UI Tests report - ${{ matrix.browser }} - ${{ github.run_id }}
           path: cypress/reports
