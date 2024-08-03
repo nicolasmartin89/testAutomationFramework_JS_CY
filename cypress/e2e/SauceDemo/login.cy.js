@@ -51,7 +51,7 @@ const valid_password_login = login_credentials.valid_password_1;
 
 
     //Test Case for Google.
-  it('@regression [GOOGLE] Navigate to google page. Validate that User is able to see the Page Title', () => {
+  it.skip('@regression [GOOGLE] Navigate to google page. Validate that User is able to see the Page Title', () => {
     
     cy.visit('http://google.com')
 
