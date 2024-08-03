@@ -1,9 +1,12 @@
 /// <reference types="cypress" />
 import LoginPage from '../../support/pages/LoginPage';
 import ProductsPage from '../../support/pages/ProductsPage';
+import Footer from '../../support/pages/components/Footer';
+import Header from '../../support/pages/components/Header';
 
 //Test Suite
 describe('Sauce Demo - [LOGIN]', () => {
+    
   //Execute before each test case
   beforeEach(() => {
     
@@ -28,8 +31,9 @@ const valid_password_login = login_credentials.valid_password_1;
     cy.get('.product_label').should('have.text','Products')
   })
 
+  
   //Test Case for SauceDemo USING POM.
-  it.skip('@regression @sanity [LOGIN] Login with valid credentials. Validate that User is able to login with valid credentials', () => {
+  it('@regression [SAUCE DEMO] Login with valid credentials. Validate that User is able to login with valid credentials', () => {
     
     cy.goToApp()
     LoginPage.fill_textBox_username(valid_username_login)
@@ -37,6 +41,11 @@ const valid_password_login = login_credentials.valid_password_1;
     LoginPage.click_login_button()
     ProductsPage.elements.heading_productPage.should('have.text','Products')
     
+    Header.elements.header_productPage('have.text','Sauce Labs')
+    Footer.elements.message_copy_footer('have.id','header_container')
+
+    cy.screenshot()
+
   })
 
 
