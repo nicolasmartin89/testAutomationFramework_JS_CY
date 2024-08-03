@@ -11,6 +11,17 @@ module.exports = defineConfig({
     application_URL: 'https://www.saucedemo.com/'
   },
 
+  //Set number of retries for falied test.
+  retries:1,
+  
+  //Set default viewport dimensions
+  viewportHeight: 640,
+  viewportWidth: 980,
+
+  //Set video Options
+  video: true,
+  videoCompression: true,
+
   // Configure the Mochawesome reporter for generating test reports
   reporter: 'cypress-mochawesome-reporter',
   reporterOptions: {

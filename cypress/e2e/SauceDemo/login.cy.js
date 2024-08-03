@@ -55,7 +55,7 @@ const valid_password_login = login_credentials.valid_password_1;
     
     cy.visit('http://google.com')
 
-    cy.get('.uU7dJb').should('have.text', "Argentina")
+    cy.get('.uU7dJb').should('have.text', "Argentina ASDASDASDASDASd")
     
   })
 })
