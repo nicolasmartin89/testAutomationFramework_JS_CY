@@ -1,0 +1,55 @@
+# For test excecution
+
+#Machine (Win/Mac/Linux)
+
+# Sofwares to be installed (Node Js)
+
+#Need to execute the test
+############################################
+
+name: 01_Pre-defined browser Chrome
+
+#Events
+on:
+    #Manual trigger
+    workflow_dispatch:
+
+    #Trigger on push main branch
+    push:
+      branches:
+        -main
+
+    #Trigger on pull request to the main branch
+    pull_request:
+      branches:
+        -main
+
+jobs:
+    ui_test_chrome:
+    run-on: ubuntu-latest
+
+    steps:
+      #Step 1: Cheching out the code from Github repo to the machine (ubuntu-latest)
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      #Step 2: Installing node.js
+      - name: Install node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: 16
+
+      #Step 3: Installing dependencies for cypress
+      - name: Install dependencies for cypress.
+        run: npm ci
+
+      #Step 4: Run Cypress test on Chrome
+      - name: Run Cypress UI tests.
+        run: npm run cy:test:CHROME
+
+      #Step 5: Upload test reports as artifact on github
+      - name: Upload reports.
+        uses: actions/upload-artifact@v2
+        with:
+          name: UI Tests report
+          path: cypress/reports
